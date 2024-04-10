@@ -12,12 +12,13 @@ class Solution {
     
     void helper(int[] nums, List<Integer> smallList, List<List<Integer>> FinalList, int index){
         
+        //fake base case
+        if(index>nums.length){
+            return;
+        }
+        //in this case we don't need base case
         FinalList.add(new ArrayList<Integer>(smallList));
-        //base case
-//          if(smallList.size()==nums.length){
-//             FinalList.add(new ArrayList<Integer>(smallList));
-//              return ;
-             
+
 //         }
         //iterate the num
          for(int i=index;i<nums.length; i++){     
