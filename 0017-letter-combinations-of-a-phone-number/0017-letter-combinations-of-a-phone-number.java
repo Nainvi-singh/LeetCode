@@ -1,6 +1,5 @@
 class Solution {
     public List<String> letterCombinations(String digits) {
-        //List<String> smallList=new ArrayList<>();
         String smallList="";
         List<String> FinalList=new ArrayList<>();
         if (digits == null || digits.length() == 0) {
@@ -10,11 +9,10 @@ class Solution {
         String map[]={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
         helper(index,digits,smallList,FinalList,map);
         return FinalList;
-        
-        
     }
     
-    void helper(int index,String digits, String smallList, List<String> FinalList,String map[]){
+    void helper(int index,String digits,String smallList, List<String> FinalList,String map[]){
+        
         
         //base case
          if(index>=digits.length()){
@@ -22,9 +20,10 @@ class Solution {
              return ;
              
         }
-
-
-        int number=digits.charAt(index)-  '0';
+        
+        
+        int number=digits.charAt(index)-  '0'; //to convert character to numeric 
+        // by doing this we will get index number 
         String value=map[number];
          
         //iterate the num
