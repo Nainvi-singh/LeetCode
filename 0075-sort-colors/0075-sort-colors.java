@@ -1,23 +1,32 @@
 class Solution {
+    void swap(int firstIndex,int secondIndex,int[] nums){
+        int temp=nums[firstIndex];
+        nums[firstIndex]=nums[secondIndex];
+        nums[secondIndex]=temp;
+    }
     public void sortColors(int[] nums) {
-        int i, j, temp;
-        boolean swapped;
-        for (i = 0; i < nums.length - 1; i++) {
-            swapped = false;
-            for (j = 0; j < nums.length - i - 1; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    
-                    // Swap arr[j] and arr[j+1]
-                    temp = nums[j];
-                    nums[j] = nums[j + 1];
-                    nums[j + 1] = temp;
-                    swapped = true;
-                }
+        //three pointer
+        int low=0;
+        int high=nums.length-1;
+        int mid=0;
+        while(mid<=high){
+            int currentValue=nums[mid];
+            //low to mid
+            if(currentValue==0){
+                swap(low,mid,nums);
+                low++;
+                mid++;
+                
             }
-            if (swapped == false){
-                 break;
+            //move mid
+            else if(currentValue==1){
+                mid++;
+            }
+            //mid to high
+            else if(currentValue==2){
+                swap(mid,high,nums);
+                high--;
             }
         }
-               
     }
 }
