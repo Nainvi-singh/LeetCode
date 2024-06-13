@@ -22,10 +22,29 @@ class Solution {
 //                 }
                 
 //             }
-//             return 0;
+//             return -1;
         
-        //apporach 3-sorting
-        Arrays.sort(nums);
-        return nums[nums.length/2];
+        // //apporach 3-sorting
+        // Arrays.sort(nums);
+        // return nums[nums.length/2];
+        
+        //apporach 3 -Boyer moore voting algo
+        int count =0;
+        int me=0;
+        for(int val: nums){
+            if(count==0){
+                me=val;
+                count++;
+            } 
+            else if(me==val){
+                count++;
+                
+            }
+            else{
+                count--;
+            }
+        }
+        return me;
+        
     }
 }
