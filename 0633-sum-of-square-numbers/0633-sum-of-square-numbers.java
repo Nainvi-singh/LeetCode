@@ -1,7 +1,7 @@
 class Solution {
     public boolean judgeSquareSum(int c) {
         
-        //two pointer
+    
         for (long a = 0; a * a <= c; a++) { 
             
             double b = Math.sqrt(c - a * a);  
