@@ -15,23 +15,22 @@
  */
 class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        return helper(root,0,targetSum);
-    }
-    boolean helper(TreeNode root,int sum,int targetSum){
-        //base case
+        //3rd apporach
+        //if tree is empty
         if(root==null){
             return false;
         }
-        sum=sum+root.val;
-        //leaf Node
-        if(root.left==null&&root.right==null){
-            return sum==targetSum;
+        //on each node i minus the node value from the  targetsum
+        targetSum=targetSum - root.val;
+        //leaf node
+        if(root.left==null && root.right ==null){
+            return targetSum==0;
         }
         //move to the left
-        boolean leftResult=helper(root.left,sum,targetSum);
+        boolean left=hasPathSum(root.left,targetSum);
         //move to the right
-        boolean rightResult=helper(root.right,sum,targetSum);
-            
-        return leftResult||rightResult;
+        boolean right=hasPathSum(root.right,targetSum);
+        
+        return left||right;
     }
 }
