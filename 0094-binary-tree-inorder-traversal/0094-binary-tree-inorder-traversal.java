@@ -18,9 +18,7 @@ class Solution {
         Stack<TreeNode> stack =new Stack<>();
         List<Integer> result =new ArrayList<>();
         TreeNode temp=root;
-        if(root==null){
-            return result;
-        }
+        
         
         while(temp!=null || !stack.isEmpty()){
             while(temp!=null){
