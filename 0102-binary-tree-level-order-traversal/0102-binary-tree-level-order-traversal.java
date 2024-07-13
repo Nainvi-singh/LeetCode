@@ -22,7 +22,7 @@ class Solution {
         
         Queue <TreeNode> queue=new LinkedList<>();
         queue.offer(root);
-        int level=0;
+
         while(!queue.isEmpty()){
             int size =queue.size();
             List<Integer> smallList=new ArrayList<>();
@@ -36,8 +36,8 @@ class Solution {
                     queue.offer(node.right);
                 }
             }
-            levels.add(level,smallList);
-            level++;       
+            levels.add(smallList);
+                
         }
         return levels;
     }
