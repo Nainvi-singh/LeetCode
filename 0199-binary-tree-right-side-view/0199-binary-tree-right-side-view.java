@@ -25,14 +25,15 @@ class Solution {
             int size=queue.size();
             for(int i=0;i<size;i++){
                 TreeNode node =queue.poll();
-                if(i==size-1){
+                if(i==0){
                     result.add(node.val);
+                }
+                
+                if(node.right!=null){
+                    queue.offer(node.right);
                 }
                 if(node.left!=null){
                     queue.offer(node.left);
-                }
-                if(node.right!=null){
-                    queue.offer(node.right);
                 }
             }
         }
