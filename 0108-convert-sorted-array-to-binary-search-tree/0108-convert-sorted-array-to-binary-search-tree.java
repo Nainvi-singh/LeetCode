@@ -34,3 +34,6 @@ class Solution {
         return helper(0,nums.length-1);
     }
 }
+
+//tc=O(n)
+//sc=O(log n)
