@@ -1,4 +1,5 @@
 class Solution {
+    //top down(big to small)
     Map<Integer,Integer> memo=new HashMap<>();
     public int fib(int n) {
         if(n==0||n==1){
