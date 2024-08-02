@@ -1,15 +1,18 @@
 class Solution {
-    //top down(big to small)
+    //buttom up(small to big)
     Map<Integer,Integer> memo=new HashMap<>();
     public int fib(int n) {
-        if(n==0||n==1){
-            return n;
+        if(n==0){
+            return 0;
         }
-        if(memo.containsKey(n)){
-            return memo.get(n);
+        int arr[]=new int[n+1];
+        arr[1]=1;
+        for(int i=2;i<=n;i++){
+            int firstTerm=arr[i-1];
+            int secondTerm=arr[i-2];
+            int thirdTerm=firstTerm+secondTerm;
+            arr[i]=thirdTerm;
         }
-        int element=fib(n-1)+fib(n-2);
-        memo.put(n,element);
-        return element;
+        return arr[n];
     }
 }
