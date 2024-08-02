@@ -1,13 +1,14 @@
 class Solution {
+    Map<Integer,Integer> memo=new HashMap<>();
     public int fib(int n) {
-        if(n==0){
-            return 0;
-            
+        if(n==0||n==1){
+            return n;
         }
-        if(n==1){
-            return 1;
+        if(memo.containsKey(n)){
+            return memo.get(n);
         }
-        
-        return fib(n-1)+fib(n-2);
+        int element=fib(n-1)+fib(n-2);
+        memo.put(n,element);
+        return element;
     }
 }
