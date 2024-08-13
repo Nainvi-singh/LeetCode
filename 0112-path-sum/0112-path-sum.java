@@ -13,24 +13,41 @@
  *     }
  * }
  */
+
+//Apporach 2
+
+class Pair{
+    TreeNode node;
+    int currentSum;
+    Pair(TreeNode node,int currentSum){
+        this.node=node;
+        this.currentSum=currentSum;
+    }
+}
 class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        //3rd apporach
-        //if tree is empty
         if(root==null){
             return false;
         }
-        //on each node i minus the node value from the  targetsum
-        targetSum=targetSum - root.val;
-        //leaf node
-        if(root.left==null && root.right ==null){
-            return targetSum==0;
+        Stack<Pair> stack=new Stack <>();
+        stack.push(new Pair(root,0));
+        while(!stack.isEmpty()){
+            Pair pair=stack.pop();
+            TreeNode node=pair.node;
+            int currentSum=pair.currentSum;
+            currentSum=currentSum+node.val;
+            if(node.left==null&& node.right==null){
+                if(currentSum==targetSum){
+                    return true;
+                }
+            }
+            if(node.left!=null){
+                stack.push(new Pair(node.left,currentSum));
+            }if(node.right!=null){
+                stack.push(new Pair(node.right,currentSum));
+            }
         }
-        //move to the left
-        boolean left=hasPathSum(root.left,targetSum);
-        //move to the right
-        boolean right=hasPathSum(root.right,targetSum);
-        
-        return left||right;
+        return false;
     }
+    
 }
