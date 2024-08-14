@@ -15,32 +15,27 @@
  */
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack =new Stack<>();
-        Stack<TreeNode> stack2 =new Stack<>();
-        List<Integer> result =new ArrayList<>();
+        Stack<TreeNode> stack1=new Stack<>();
+        Stack<TreeNode> stack2=new Stack<>();
+        List<Integer> result=new ArrayList<>();
         if(root==null){
             return result;
         }
-        stack.push(root);
-        while(!stack.isEmpty()){
-            TreeNode node =stack.pop();//stack pop to process it
-            //whem i pop from thr stack, just push it in stack2
+        stack1.push(root);
+        while(!stack1.isEmpty()){
+            TreeNode node=stack1.pop();
             stack2.push(node);
-            //process the cureent node
-             if(node.left!=null){
-                stack.push(node.left);
+            if(node.left!=null){
+                stack1.push(node.left);
             }
             if(node.right!=null){
-                stack.push(node.right);
+                stack1.push(node.right);
             }
-              
         }
-        
-        //pop all the element of stack2 and add in result;
-        while(!stack2.isEmpty()){
-            TreeNode node =stack2.pop();
-            result.add(node.val);  //store the node value in list
-        }
+         while(!stack2.isEmpty()){
+             TreeNode node=stack2.pop();
+             result.add(node.val);
+         }
         return result;
     }
 }
