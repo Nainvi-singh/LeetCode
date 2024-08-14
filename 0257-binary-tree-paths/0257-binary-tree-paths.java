@@ -27,7 +27,7 @@ class Solution {
         
         String a=String.valueOf(root.val);
         if(root.left==null && root.right==null){
-            s=s+a;
+            s=s+a; //for leaf node
             list.add(s);
         }
         print(root.left,s+a+"->");
