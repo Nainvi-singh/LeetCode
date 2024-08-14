@@ -13,29 +13,26 @@
  *     }
  * }
  */
+
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack =new Stack<>();
-        List<Integer> result =new ArrayList<>();
+        List<Integer> result=new ArrayList<>();
         if(root==null){
             return result;
         }
-        //in this stack push the first node
+        Stack <TreeNode> stack=new Stack<>();
+        
         stack.push(root);
         while(!stack.isEmpty()){
-            TreeNode node =stack.pop();
-            result.add(node.val);  //store the node value in list
+            TreeNode node=stack.pop();
+            result.add(node.val);
             if(node.right!=null){
                 stack.push(node.right);
             }
-             if(node.left!=null){
+            if(node.left!=null){
                 stack.push(node.left);
             }
         }
         return result;
     }
 }
-/*
-maintain a stack
-in stack we maintain node
-*/
