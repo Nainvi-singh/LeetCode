@@ -19,12 +19,12 @@ class Solution {
         ListNode newHead=reverse(slow.next);
         ListNode second=newHead;
         ListNode first =head;
-        while(second!=null){
-            if(first.val!=second.val){
+        while(newHead!=null){
+            if(head.val!=newHead.val){
                 return false;
             }
-            first=first.next;
-            second=second.next;
+            head=head.next;
+            newHead=newHead.next;
         }
         return true;
     }
